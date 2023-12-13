@@ -1,13 +1,9 @@
-#Terminal
+# Terminal
 
--> Lenguaje: C#
+## -> Lenguaje: C#
 
--> Objetivos:
+### -> Objetivos:
 
-	<strong>
-		<ul>
-			<li>Crear una terminal grafica con estilos propios</li>
-			<li>Lograr que la terminal manipule el texto insertado</li>
-			<li>Introducir funcionalidades y dar soporte</li>
-		</ul>
-	</strong>
+#### .Crear una terminal grafica con estilos propios
+#### .Lograr que la terminal manipule el texto insertado
+#### .Introducir funcionalidades y dar soporte
