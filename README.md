@@ -2,11 +2,11 @@
 
 ## -> Objetivos
 
-### []Crear una terminal grafica con estilos propios
+### [ ]Crear una terminal grafica con estilos propios
 
-### []Lograr que la terminal manipule el texto insertado
+### [ ]Lograr que la terminal manipule el texto insertado
 
-### []Introducir funcionalidades y dar soporte
+### [ ]Introducir funcionalidades y dar soporte
 
 Primero se crea una instancia de windows form que procese las entradas de teclado.
 Se muestran en pantalla los caracteres que se vayan escribiendo.
