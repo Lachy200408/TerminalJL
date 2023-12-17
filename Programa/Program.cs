@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Diagnostics;
+using System.Collections;
 
 namespace Terminal{
 	public class Program{

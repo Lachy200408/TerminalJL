@@ -1,4 +1,4 @@
-namespace program{
+namespace Terminal{
 	public class Directorio{
 		//Metodo que devuelve el directorio actual
 		public static string actual(){
@@ -6,7 +6,7 @@ namespace program{
 		}
 
 		//Metodo que devuelve el path de las funciones en el directorio actual
-		protected static string acutualFunctions(){
+		protected static string actualFunctions(){
 			return Directorio.actual() + "\\Functions\\";
 		}
 	}

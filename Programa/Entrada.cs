@@ -13,7 +13,7 @@ namespace Terminal{
 		}
 
 		//Componer el array
-		private void conformarArray(){
+		protected void conformarArray(){
 			string stringAux = "";
 			short contador = 0;
 
@@ -30,7 +30,7 @@ namespace Terminal{
 
 		//Enviarle el array a Llamada
 		private void enviarLlamada(){
-			Llamada.build(this.arrayComando);
+			Executable.llamarPrograma(this.arrayComando);
 		}
 	}
 }
