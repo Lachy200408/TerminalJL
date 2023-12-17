@@ -1,0 +1,15 @@
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\bin\Debug\net6.0\AyudasParaCode.exe
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\bin\Debug\net6.0\AyudasParaCode.deps.json
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\bin\Debug\net6.0\AyudasParaCode.runtimeconfig.json
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\bin\Debug\net6.0\AyudasParaCode.dll
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\bin\Debug\net6.0\ref\AyudasParaCode.dll
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\bin\Debug\net6.0\AyudasParaCode.pdb
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.csproj.AssemblyReference.cache
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.GeneratedMSBuildEditorConfig.editorconfig
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.AssemblyInfoInputs.cache
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.AssemblyInfo.cs
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.csproj.CoreCompileInputs.cache
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.dll
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\ref\AyudasParaCode.dll
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.pdb
+D:\Cibernética\Programas C#\Clases Prácticas\AyudasParaCode\obj\Debug\net6.0\AyudasParaCode.genruntimeconfig.cache
