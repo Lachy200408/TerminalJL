@@ -4,7 +4,12 @@ namespace Terminal{
 		private string[] arrayComando; //Aqui se dividira en un array
 
 		//Constructor
-		public Entrada(string _stringComando){
+		public Entrada(){
+			this.stringComando = "";
+			this.arrayComando = new string[0];
+		}
+
+		public void nueva(string _stringComando){
 			this.stringComando = _stringComando;
 			this.arrayComando = new string[WhiteSpaces.contar(this.stringComando)+1];
 
@@ -14,16 +19,15 @@ namespace Terminal{
 
 		//Componer el array
 		protected void conformarArray(){
-			string stringAux = "";
-			short contador = 0;
-
-			for(short i=0; i<this.stringComando.Length; i++){
-				stringAux += this.stringComando[i];
-
-				if(i == stringComando.Length-1 || this.stringComando[i+1] == ' '){
-					this.arrayComando[contador] = stringAux;
-					stringAux = "";
-					contador++;
+			for(int cont=0; this.stringComando != ""; cont++){
+				int indice = this.stringComando.IndexOf(" ");
+				if(indice != -1){
+					this.arrayComando[cont] = this.stringComando.Substring(0,indice);
+					this.stringComando = this.stringComando.Substring(indice+1);
+				}
+				else{
+					this.arrayComando[cont] = this.stringComando;
+					break;
 				}
 			}
 		}

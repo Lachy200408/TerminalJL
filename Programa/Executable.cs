@@ -49,7 +49,6 @@ namespace Terminal{
 
 				//Ejecuta y espera la respuesta
 				string response = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length > 1)? _arrayComando[1] : "");
-				Console.WriteLine(response);
 			}
 			catch(Exception error){
 				switch (error.Message)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Diagnostics;
-using System.Collections;
 
 namespace Terminal{
 	public class Program{
@@ -20,7 +19,9 @@ namespace Terminal{
 				Main();
 			}
 
-			Entrada entry = new Entrada(stringEntrante);
+			Entrada entry = new Entrada();
+
+			entry.nueva(stringEntrante);
 		}
 	}
 }
