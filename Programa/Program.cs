@@ -22,6 +22,8 @@ namespace Terminal{
 			Entrada entry = new Entrada();
 
 			entry.nueva(stringEntrante);
+
+			Console.WriteLine(Executable.getSalida());
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace Terminal{
 
 		//Metodo que devuelve el path de las funciones en el directorio actual
 		protected static string actualFunctions(){
-			return Directorio.actual() + "\\Functions\\";
+			return Directorio.actual() + SistemaOperativo.barra() + "Functions" + SistemaOperativo.barra();
 		}
 	}
 }

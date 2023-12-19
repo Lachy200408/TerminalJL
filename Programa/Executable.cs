@@ -1,19 +1,21 @@
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Terminal{
 	public class Executable : Directorio{
+		private static string salida = "";
+
+		public static string getSalida(){
+			return salida;
+		}
+
 		//Metodo que analiza si existe el programa
 		private static bool existePrograma(string fileName){
-			if(File.Exists(Directorio.actualFunctions() + fileName + "\\" + fileName + ".exe")){
-				return true;
-			}
-			else{
-				return false;
-			}
+			return (File.Exists(Directorio.actualFunctions() + fileName + SistemaOperativo.barra() + fileName + SistemaOperativo.extension()))? true : false;
 		}
 
 		private static string executablePath(string fileName){
-			return Directorio.actualFunctions() + fileName + "\\" + fileName + ".exe";
+			return Directorio.actualFunctions() + fileName + SistemaOperativo.barra() + fileName + SistemaOperativo.extension();
 		}
 
 		private static string ejecutarWaitResponse(string _executablePath, string argumentos){
@@ -48,7 +50,7 @@ namespace Terminal{
 				}
 
 				//Ejecuta y espera la respuesta
-				string response = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length > 1)? _arrayComando[1] : "");
+				salida = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length > 1)? _arrayComando[1] : "");
 			}
 			catch(Exception error){
 				switch (error.Message)
