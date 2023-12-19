@@ -1,15 +1,30 @@
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0\Programa.exe
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0\Programa.deps.json
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0\Programa.runtimeconfig.json
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0\Programa.dll
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0\Programa.pdb
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.AssemblyInfoInputs.cache
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.AssemblyInfo.cs
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.csproj.CoreCompileInputs.cache
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.sourcelink.json
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.dll
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\refint\Programa.dll
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.pdb
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\Programa.genruntimeconfig.cache
-C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0\ref\Programa.dll
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/bin/Debug/net8.0/Programa.exe
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/bin/Debug/net8.0/Programa.deps.json
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/bin/Debug/net8.0/Programa.runtimeconfig.json
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/bin/Debug/net8.0/Programa.dll
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/bin/Debug/net8.0/Programa.pdb
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.AssemblyInfoInputs.cache
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.AssemblyInfo.cs
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.csproj.CoreCompileInputs.cache
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.sourcelink.json
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.dll
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/refint/Programa.dll
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.pdb
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/Programa.genruntimeconfig.cache
+C:/Users/Lazaro/Programacion/.NET/TerminalJL/Programa/obj/Debug/net8.0/ref/Programa.dll
+/home/lazaro/Dev Clases/TerminalJL/Programa/bin/Debug/net8.0/Programa
+/home/lazaro/Dev Clases/TerminalJL/Programa/bin/Debug/net8.0/Programa.deps.json
+/home/lazaro/Dev Clases/TerminalJL/Programa/bin/Debug/net8.0/Programa.runtimeconfig.json
+/home/lazaro/Dev Clases/TerminalJL/Programa/bin/Debug/net8.0/Programa.dll
+/home/lazaro/Dev Clases/TerminalJL/Programa/bin/Debug/net8.0/Programa.pdb
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.GeneratedMSBuildEditorConfig.editorconfig
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.AssemblyInfoInputs.cache
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.AssemblyInfo.cs
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.csproj.CoreCompileInputs.cache
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.sourcelink.json
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.dll
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/refint/Programa.dll
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.pdb
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/Programa.genruntimeconfig.cache
+/home/lazaro/Dev Clases/TerminalJL/Programa/obj/Debug/net8.0/ref/Programa.dll

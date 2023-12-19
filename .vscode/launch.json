@@ -9,7 +9,7 @@
 			"type": "coreclr",
 			"request": "launch",
 			"program": "./Programa/bin/Debug/net8.0/Programa.dll",
-			"preLaunchTask": "build"
+			"preLaunchTask": "build_Programa"
 		}
 	]
 }

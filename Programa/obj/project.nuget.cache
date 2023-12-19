@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UZ4Pa8Oc9vcuh6uwC+naNQvsk193TBnkyn18OSUxVMOC51QJEN1TzGp0j+9v4FI5Ltr4ic6qUIKrSwatMmS2SQ==",
+  "dgSpecHash": "9sF/Ucx/rHoXqAkGcZpPZSeJABp61OcsWCRxikQbRefL3zNPx35AYIU7RZMapRvK+1i2VMFAEabi6YwcDc8yjw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lazaro\\Programacion\\.NET\\TerminalJL\\Programa\\Programa.csproj",
+  "projectFilePath": "/home/lazaro/Dev Clases/TerminalJL/Programa/Programa.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
