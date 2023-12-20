@@ -1,0 +1,50 @@
+public Form1()
+        {
+            InitializeComponent();
+            this.Paint += new PaintEventHandler(Form1_Paint);
+            drawFont = new Font("Arial", size);
+        }
+        public Graphics g;
+        public float size = 12;
+        public Font drawFont;
+        public SolidBrush drawBrush = new SolidBrush(Color.White);
+        public string CadenaMostrar="";
+        private int y=0;
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            g = e.Graphics;
+            g.DrawString(CadenaMostrar, drawFont, drawBrush, 50, y);
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            this.Text=e.KeyChar.ToString();
+            
+            switch ((byte)e.KeyChar)
+            {
+                case 13:
+                    y += 20;
+                    CadenaMostrar = "";
+                    break;
+                case 8:
+                    CadenaMostrar = CadenaMostrar.Substring(0, CadenaMostrar.Length-1);
+                    break;
+                default:
+                    CadenaMostrar+= e.KeyChar.ToString();
+                break;
+            }
+            this.Invalidate();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Guionsito();
+        }
+        private void Guionsito()
+        {
+            if (CadenaMostrar.EndsWith('|'))
+                CadenaMostrar = CadenaMostrar.Substring(0, CadenaMostrar.Length - 1);
+            else
+                CadenaMostrar += "|";
+        }
