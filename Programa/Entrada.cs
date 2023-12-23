@@ -1,40 +1,34 @@
 namespace Terminal{
-	public class Entrada{
-		private string stringComando; //Aqui se guardara el string completo
-		private string[] arrayComando; //Aqui se dividira en un array
+	public static class Entrada{
+		private static string stringComando = ""; //Aqui se guardara el string completo
+		private static string[] arrayComando = new string[1]; //Aqui se dividira en un array
 
-		//Constructor
-		public Entrada(){
-			this.stringComando = "";
-			this.arrayComando = new string[0];
-		}
+		public static void nueva(string _stringComando){
+			stringComando = _stringComando;
+			arrayComando = new string[WhiteSpaces.contar(stringComando)+1];
 
-		public void nueva(string _stringComando){
-			this.stringComando = _stringComando;
-			this.arrayComando = new string[WhiteSpaces.contar(this.stringComando)+1];
-
-			this.conformarArray();
-			this.enviarLlamada();
+			conformarArray();
+			enviarLlamada();
 		}
 
 		//Componer el array
-		protected void conformarArray(){
-			for(int cont=0; this.stringComando != ""; cont++){
-				int indice = this.stringComando.IndexOf(" ");
+		private static void conformarArray(){
+			for(int cont=0; stringComando != ""; cont++){
+				int indice = stringComando.IndexOf(" ");
 				if(indice != -1){
-					this.arrayComando[cont] = this.stringComando.Substring(0,indice);
-					this.stringComando = this.stringComando.Substring(indice+1);
+					arrayComando[cont] = stringComando.Substring(0,indice);
+					stringComando = stringComando.Substring(indice+1);
 				}
 				else{
-					this.arrayComando[cont] = this.stringComando;
+					arrayComando[cont] = stringComando;
 					break;
 				}
 			}
 		}
 
 		//Enviarle el array a Llamada
-		private void enviarLlamada(){
-			Executable.llamarPrograma(this.arrayComando);
+		private static void enviarLlamada(){
+			Executable.llamarPrograma(arrayComando);
 		}
 	}
 }

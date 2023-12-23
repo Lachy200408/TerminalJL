@@ -1,33 +1,33 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0-windows7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "/home/lazaro/.nuget/packages/": {}
+    "C:\\Users\\Lazaro\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/lazaro/Dev Clases/TerminalJL/Programa/Programa.csproj",
-      "projectName": "Programa",
-      "projectPath": "/home/lazaro/Dev Clases/TerminalJL/Programa/Programa.csproj",
-      "packagesPath": "/home/lazaro/.nuget/packages/",
-      "outputPath": "/home/lazaro/Dev Clases/TerminalJL/Programa/obj/",
+      "projectUniqueName": "C:\\Users\\Lazaro\\Programacion\\.NET\\TerminalJL\\Programa\\TerminalVisual.csproj",
+      "projectName": "TerminalVisual",
+      "projectPath": "C:\\Users\\Lazaro\\Programacion\\.NET\\TerminalJL\\Programa\\TerminalVisual.csproj",
+      "packagesPath": "C:\\Users\\Lazaro\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lazaro\\Programacion\\.NET\\TerminalJL\\Programa\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/lazaro/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Lazaro\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net8.0-windows"
       ],
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "projectReferences": {}
         }
       },
@@ -38,8 +38,8 @@
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
         "imports": [
           "net461",
           "net462",
@@ -54,9 +54,12 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

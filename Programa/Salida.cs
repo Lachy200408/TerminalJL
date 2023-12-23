@@ -1,5 +1,5 @@
 namespace Terminal{
-	public class Salida{
-        
+	public static class Salida{
+        public static string message = "";
     }
 }

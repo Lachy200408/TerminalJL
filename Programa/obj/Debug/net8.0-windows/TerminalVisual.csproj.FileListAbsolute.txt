@@ -1,0 +1,17 @@
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.csproj.GenerateResource.cache
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.AssemblyInfoInputs.cache
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.AssemblyInfo.cs
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.csproj.CoreCompileInputs.cache
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.sourcelink.json
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0-windows\TerminalVisual.exe
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0-windows\TerminalVisual.deps.json
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0-windows\TerminalVisual.runtimeconfig.json
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0-windows\TerminalVisual.dll
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\bin\Debug\net8.0-windows\TerminalVisual.pdb
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\Terminal.Form1.resources
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.dll
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\refint\TerminalVisual.dll
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.pdb
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\TerminalVisual.genruntimeconfig.cache
+C:\Users\Lazaro\Programacion\.NET\TerminalJL\Programa\obj\Debug\net8.0-windows\ref\TerminalVisual.dll

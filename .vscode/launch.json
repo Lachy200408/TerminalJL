@@ -8,7 +8,7 @@
 			"name": "Depurar .NET",
 			"type": "coreclr",
 			"request": "launch",
-			"program": "./Programa/bin/Debug/net8.0/Programa.dll",
+			"program": "./Programa/bin/Debug/net8.0-windows/TerminalVisual.dll",
 			"preLaunchTask": "build_Programa"
 		}
 	]

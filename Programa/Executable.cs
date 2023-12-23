@@ -3,12 +3,6 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Terminal{
 	public class Executable : Directorio{
-		private static string salida = "";
-
-		public static string getSalida(){
-			return salida;
-		}
-
 		//Metodo que analiza si existe el programa
 		private static bool existePrograma(string fileName){
 			return (File.Exists(Directorio.actualFunctions() + fileName + SistemaOperativo.barra() + fileName + SistemaOperativo.extension()))? true : false;
@@ -36,7 +30,7 @@ namespace Terminal{
 				proceso.WaitForExit();
 			}
 
-			return (salida.Length==0)? throw new Exception(Error.NO_DEVOLUCION) : salida;
+			return salida;
 		}
 
 		//Metodo que ejecuta el programa
@@ -50,21 +44,17 @@ namespace Terminal{
 				}
 
 				//Ejecuta y espera la respuesta
-				salida = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length > 1)? _arrayComando[1] : "");
+				Salida.message = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length > 1)? _arrayComando[1] : "");
 			}
 			catch(Exception error){
 				switch (error.Message)
 				{
 					case Error.PROGRAMA_NO_EXISTE:{
-						Console.WriteLine("El comando '" + _arrayComando[0] + "' no se reconoce como una instruccion valida.");
-						break;
-					}
-					case Error.NO_DEVOLUCION:{
-						Console.WriteLine("No devolvio nada");
+						Salida.message = "El comando '" + _arrayComando[0] + "' no se reconoce como una instruccion valida.";
 						break;
 					}
 					default:{
-						Console.WriteLine(error);
+						Salida.message = error.Message;
 						break;
 					}
 				}
