@@ -14,3 +14,4 @@ D:\Proyectos\TerminalVisual\obj\Debug\net6.0-windows\TerminalVisual.dll
 D:\Proyectos\TerminalVisual\obj\Debug\net6.0-windows\ref\TerminalVisual.dll
 D:\Proyectos\TerminalVisual\obj\Debug\net6.0-windows\TerminalVisual.pdb
 D:\Proyectos\TerminalVisual\obj\Debug\net6.0-windows\TerminalVisual.genruntimeconfig.cache
+D:\Proyectos\TerminalVisual\obj\Debug\net6.0-windows\TerminalVisual.csproj.AssemblyReference.cache

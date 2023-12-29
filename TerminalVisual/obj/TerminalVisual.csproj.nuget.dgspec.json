@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyectos\\TerminalVisual\\TerminalVisual.csproj": {}
+    "D:\\Proyectos\\TerminalJL\\TerminalVisual\\TerminalVisual.csproj": {}
   },
   "projects": {
-    "D:\\Proyectos\\TerminalVisual\\TerminalVisual.csproj": {
+    "D:\\Proyectos\\TerminalJL\\TerminalVisual\\TerminalVisual.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyectos\\TerminalVisual\\TerminalVisual.csproj",
+        "projectUniqueName": "D:\\Proyectos\\TerminalJL\\TerminalVisual\\TerminalVisual.csproj",
         "projectName": "TerminalVisual",
-        "projectPath": "D:\\Proyectos\\TerminalVisual\\TerminalVisual.csproj",
+        "projectPath": "D:\\Proyectos\\TerminalJL\\TerminalVisual\\TerminalVisual.csproj",
         "packagesPath": "C:\\Users\\luisj\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyectos\\TerminalVisual\\obj\\",
+        "outputPath": "D:\\Proyectos\\TerminalJL\\TerminalVisual\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
