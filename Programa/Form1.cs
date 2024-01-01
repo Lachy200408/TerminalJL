@@ -24,7 +24,7 @@ namespace Terminal
             int selectionStart = richTextBox1.SelectionStart;  // Obtenemos la posici�n del cursor
             int lineIndex = richTextBox1.GetLineFromCharIndex(selectionStart);  // Obtenemos el �ndice de la l�nea actual
             int firstCharIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex);  // Obtenemos el �ndice del primer car�cter de la l�nea
-            string currentLine = richTextBox1.Lines[lineIndex];  // Obtenemos el texto de la l�nea actual
+            string currentLine = (richTextBox1.Lines.Length >= 1)? richTextBox1.Lines[lineIndex] : "";  // Obtenemos el texto de la l�nea actual
 
             // Agregamos "linea" al final de la l�nea actual(si reemplazando = false) o reemplazamos la linea actual(si es true)
             if (reemplazando)
@@ -68,7 +68,12 @@ namespace Terminal
                     break;
                 case 13://Enter
                     string s = ObtenerLineaEjecutable(GetLineaActual());
-                    if (s != "")//Hay algo escrito
+
+                    if(s == "clear"){
+                        richTextBox1.Text = usuario + "~";
+                        PutLineaActual("",false, sender, e);
+                    }
+                    else if (s != "")//Hay algo escrito
                     {
                         if (!(CodigosAnteriores.Contains(s)))
                             CodigosAnteriores.Add(s);
@@ -77,9 +82,16 @@ namespace Terminal
 
                         PutLineaActual("\n",false, sender, e);
                         PutLineaActual(Salida.message, false, sender, e);
+
+                        PutLineaActual("\n",false, sender, e);
+                        PutLineaActual(usuario + "~",false, sender, e);
                     }
-                    PutLineaActual("\n",false, sender, e);
-                    PutLineaActual(usuario + "~",false, sender, e);
+                    else
+                    {
+                        PutLineaActual("\n",false, sender, e);
+                        PutLineaActual(usuario + "~",false, sender, e);
+                    }
+                    
                     break;
                 case 38:
                 case 40:

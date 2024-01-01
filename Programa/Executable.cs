@@ -30,7 +30,7 @@ namespace Terminal{
 				proceso.WaitForExit();
 			}
 
-			return salida;
+			return salida.Substring(0, salida.Length-2);
 		}
 
 		//Metodo que ejecuta el programa
@@ -44,7 +44,7 @@ namespace Terminal{
 				}
 
 				//Ejecuta y espera la respuesta
-				Salida.message = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length > 1)? _arrayComando[1] : "");
+				Salida.message = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), _arrayComando[1]);
 			}
 			catch(Exception error){
 				switch (error.Message)

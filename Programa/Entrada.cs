@@ -13,6 +13,8 @@ namespace Terminal{
 
 		//Componer el array
 		private static void conformarArray(){
+			//Metodo antiguo
+			/*
 			for(int cont=0; stringComando != ""; cont++){
 				int indice = stringComando.IndexOf(" ");
 				if(indice != -1){
@@ -23,6 +25,16 @@ namespace Terminal{
 					arrayComando[cont] = stringComando;
 					break;
 				}
+			}
+			*/
+
+			if(stringComando.Contains(" ")){
+				arrayComando[0] = stringComando.Substring(0, (stringComando.IndexOf(" ")));
+				stringComando = stringComando.Substring(stringComando.IndexOf(" ") + 1);
+				arrayComando[1] = stringComando;
+			}
+			else{
+				arrayComando[0] = stringComando;
 			}
 		}
 
