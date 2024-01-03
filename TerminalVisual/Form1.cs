@@ -1,3 +1,4 @@
+using System.Collections;
 namespace TerminalVisual
 {
     public partial class Form1 : Form
@@ -12,6 +13,13 @@ namespace TerminalVisual
         }
         private List<string> CodigosAnteriores;
         private string usuario = "jeanmartinez24076";
+        private string[] MensajeEntregar= {"Accion ejecutada","Todos los comandos captados"};
+        public Dictionary<string, Color> Destacadas = new Dictionary<string, Color>
+        {
+            {"Hola",Color.Green }
+        };
+
+
         private string GetLineaActual()
         {
                 int currentLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart);  
@@ -40,24 +48,25 @@ namespace TerminalVisual
             richTextBox1.SelectionStart = firstCharIndex + currentLine.Length;
             richTextBox1.SelectionLength = 0;
         }
-        //private void PutLineas(string[] lineas, object sender, KeyEventArgs e)
-        //{
-        //    e.Handled = true;
-        //    int selectionStart = richTextBox1.SelectionStart;  // Obtenemos la posición del cursor
-        //    int lineIndex = richTextBox1.GetLineFromCharIndex(selectionStart);  // Obtenemos el índice de la línea actual
-        //    int firstCharIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex);  // Obtenemos el índice del primer carácter de la línea
-        //    string currentLine = richTextBox1.Lines[lineIndex];  // Obtenemos el texto de la línea actual
+        private void PutLineas(string[] lineas, object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+            int selectionStart = richTextBox1.SelectionStart;  // Obtenemos la posición del cursor
+            int lineIndex = richTextBox1.GetLineFromCharIndex(selectionStart);  // Obtenemos el índice de la línea actual
+            int firstCharIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex);  // Obtenemos el índice del primer carácter de la línea
+            string currentLine = richTextBox1.Lines[lineIndex];  // Obtenemos el texto de la línea actual
 
-        //    // Agregamos "linea" al final de la línea actual
+            // Agregamos las lineas al final de la línea actual
+            for(int i = 0; i < lineas.Length; i++)
+                currentLine+= lineas[i]+"\n";
+            // Reemplazamos la línea actual con la versión modificada
+            richTextBox1.Select(firstCharIndex, richTextBox1.Lines[lineIndex].Length);  // Seleccionamos la línea actual
+            richTextBox1.SelectedText = currentLine;  // Reemplazamos el texto de la línea seleccionada
 
-        //    // Reemplazamos la línea actual con la versión modificada
-        //    richTextBox1.Select(firstCharIndex, richTextBox1.Lines[lineIndex].Length);  // Seleccionamos la línea actual
-        //    richTextBox1.SelectedText = currentLine;  // Reemplazamos el texto de la línea seleccionada
-
-        //    // Movemos el cursor al final de la línea modificada
-        //    richTextBox1.SelectionStart = firstCharIndex + currentLine.Length;
-        //    richTextBox1.SelectionLength = 0;
-        //}
+            // Movemos el cursor al final de la línea modificada
+            richTextBox1.SelectionStart = firstCharIndex + currentLine.Length;
+            richTextBox1.SelectionLength = 0;
+        }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -74,6 +83,7 @@ namespace TerminalVisual
                             CodigosAnteriores.Add(s);
                     }
                     PutLineaActual("\n",false, sender, e);
+                    PutLineas(MensajeEntregar,sender, e);
                     PutLineaActual(usuario + "~",false, sender, e);
                     break;
                 case 38:
@@ -121,6 +131,10 @@ namespace TerminalVisual
             int indi = linea.IndexOf("~");
             linea = linea.Substring(indi+1);
             return linea;
+        }
+        private void PalabrasDestacadas()
+        {
+
         }
     }
 
