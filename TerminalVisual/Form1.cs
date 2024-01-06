@@ -16,7 +16,9 @@ namespace TerminalVisual
         private string[] MensajeEntregar= {"Accion ejecutada","Todos los comandos captados"};
         public Dictionary<string, Color> Destacadas = new Dictionary<string, Color>
         {
-            {"Hola",Color.Green }
+            {"Hola",Color.Green },
+            {"hola",Color.Blue },
+            {"ola",Color.Red }
         };
 
 
@@ -73,7 +75,7 @@ namespace TerminalVisual
             switch ((byte)e.KeyCode)
             {
                 case 8://Backspace
-                        e.Handled = Editable();  // Previene el comportamiento predeterminado del backspace
+                        e.Handled = Editable(0);  // Previene el comportamiento predeterminado del backspace
                     break;
                 case 13://Enter
                     string s = ObtenerLineaEjecutable(GetLineaActual());
@@ -86,9 +88,13 @@ namespace TerminalVisual
                     PutLineas(MensajeEntregar,sender, e);
                     PutLineaActual(usuario + "~",false, sender, e);
                     break;
-                case 38:
+                case 32:
+                    //ChangeColorOfLastWord();
+                    break;
+                case 38://Fecha Arriba y flecha abajo
                 case 40:
-                    if (CodigosAnteriores.Count > 0)    
+                    e.Handled = true;
+                    if (CodigosAnteriores.Count > 0|| Editable(1))    
                     {
                         int indice = CodigosAnteriores.IndexOf(ObtenerLineaEjecutable(GetLineaActual()));
                         if (indice < 0)//Codigo inexistente
@@ -111,19 +117,19 @@ namespace TerminalVisual
                         }
                     }
                     break;
-                default:
-                    break;
             }
             
             
         }
 
-        private bool Editable()
-       {// Evitar la escritura en la plantilla de la terminal una vez definida 
+        private bool Editable(int X)
+       {// Evitar la escritura en la plantilla de la terminal una vez definida, int= 0 se llamara en caso de BackSpace e int=1 en cualquier otro caso 
             int currentLineIndex = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart);
             int positionInLine = richTextBox1.SelectionStart - richTextBox1.GetFirstCharIndexFromLine(currentLineIndex);
-            if (positionInLine <= usuario.Length+1|| currentLineIndex!= richTextBox1.Lines.Length-1)
+            if (currentLineIndex != richTextBox1.Lines.Length - 1)
                 return true;//No es editable
+            else if (X == 0 && positionInLine <= usuario.Length + 1)
+                return true;
             return false;// Si lo es
         }
         private string ObtenerLineaEjecutable(string linea)
@@ -133,8 +139,60 @@ namespace TerminalVisual
             return linea;
         }
         private void PalabrasDestacadas()
-        {
+        {//Trabaja la linea actual y da color a las palabras que se considero
+            string s = ObtenerLineaEjecutable(GetLineaActual());
+            s= s.Trim();
+            if(s != null&& s!="")
+            {
+                int indi = -1;
+                int p = s.IndexOf(" ");
+                if (p != -1)
+                {
+                    indi = p;
+                    while (p != -1)
+                    {
+                        indi = p;
+                        p = s.Substring(indi + 1).IndexOf(" ");
+                    }
+                }
+                s = s.Substring(indi+1);
+                if (Destacadas.ContainsKey(s))
+                {
+                    richTextBox1.Select(indi + usuario.Length - 1, s.Length+ usuario.Length-1 );
+                    // Aplicar un color al texto seleccionado
+                    richTextBox1.SelectionColor = Destacadas[s];
+                }
+            }
 
+        }
+        private void ChangeColorOfLastWord()
+        {
+            string text = richTextBox1.Text;
+            string[] words = text.Split(' ');
+            if (words.Length >= 1)
+            {
+                string lastWord = words[words.Length - 1]; // -2 because splitting by space adds an empty string at the end
+                int startIndex = text.LastIndexOf(lastWord);
+                if (startIndex != -1)
+                {
+                    richTextBox1.Select(startIndex, lastWord.Length);
+                    richTextBox1.SelectionColor = Color.Blue;
+                    // Reset the selection color to the default after a brief delay
+                    Task.Delay(1000).ContinueWith(t =>
+                    {
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            richTextBox1.SelectionColor = richTextBox1.ForeColor;
+                        });
+                    });
+                }
+            }
+        }
+
+        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((!((byte)e.KeyChar == 13 || (byte)e.KeyChar == 8 || (byte)e.KeyChar == 40)) && Editable(1))
+                e.Handled = true;
         }
     }
 

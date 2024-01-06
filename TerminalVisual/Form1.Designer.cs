@@ -43,6 +43,7 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             this.richTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.richTextBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox1_KeyPress);
             // 
             // Form1
             // 
@@ -52,6 +53,7 @@
             this.ClientSize = new System.Drawing.Size(1099, 485);
             this.Controls.Add(this.richTextBox1);
             this.ForeColor = System.Drawing.Color.White;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
