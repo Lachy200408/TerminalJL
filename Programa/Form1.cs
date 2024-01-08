@@ -56,7 +56,10 @@ namespace Terminal
                         while(Salida.message.Count >= 1) PutLineaActual(Salida.message.Dequeue()+"\n", false, sender, e);
                     }
                     
-                    if(s == "clear"){
+                    if(s.ToLower() == "exit"){
+                        this.Close();
+                    }
+                    else if(s.ToLower() == "clear"){
                         richTextBox1.Text = usuarioPC() + ":" + pathActual() + ">";
                         PutLineaActual("",false, sender, e);
                     }
