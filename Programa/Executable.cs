@@ -20,23 +20,21 @@ namespace Terminal{
 				proceso.StartInfo.RedirectStandardOutput = true;
 				proceso.StartInfo.UseShellExecute = false;
 				proceso.StartInfo.CreateNoWindow = true;
-				proceso.OutputDataReceived += new DataReceivedEventHandler(tomarOutput
-					/*(object sendingProcess, DataReceivedEventArgs outline) => {
+				proceso.OutputDataReceived += new DataReceivedEventHandler(async (object sendingProcess, DataReceivedEventArgs outline) => {
 						if(!string.IsNullOrEmpty(outline.Data)){
-							form.PutLineaActual(outline.Data, false, sender, e);
+							await Task.Run(form._PutLinea(outline.Data, false, sender, e));
+
+							//Es hora de comentar el codigo
+							//No tengo ni puñetera idea de como lo hice pero li hice
+							//OJO no tocar
 						}
-					}*/);
+					});
 
 				proceso.Start();
 				proceso.BeginOutputReadLine();
 
 				proceso.WaitForExit();
 			}
-		}
-
-		private static void tomarOutput(object sendingProcess, DataReceivedEventArgs outline/*, Form1 form, object sender, KeyEventArgs e*/){
-			if(!string.IsNullOrEmpty(outline.Data))
-				Salida.message.Enqueue(outline.Data);
 		}
 
 		//Metodo que ejecuta el programa

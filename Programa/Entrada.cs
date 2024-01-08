@@ -1,11 +1,11 @@
 namespace Terminal{
 	public static class Entrada{
 		private static string stringComando = ""; //Aqui se guardara el string completo
-		private static string[] arrayComando = new string[1]; //Aqui se dividira en un array
+		private static string[] arrayComando = new string[0]; //Aqui se dividira en un array
 
 		public static string[] nueva(string _stringComando){
 			stringComando = _stringComando;
-			arrayComando = new string[WhiteSpaces.contar(stringComando)+1];
+			arrayComando = new string[2];
 
 			return conformarArray();
 		}
@@ -13,7 +13,7 @@ namespace Terminal{
 		//Componer el array
 		private static string[] conformarArray(){
 			if(stringComando.Contains(" ")){
-				arrayComando[0] = stringComando.Substring(0, (stringComando.IndexOf(" ")));
+				arrayComando[0] = stringComando.Substring(0, (stringComando.IndexOf(" "))).ToLower();
 				stringComando = stringComando.Substring(stringComando.IndexOf(" ") + 1);
 				arrayComando[1] = stringComando;
 			}

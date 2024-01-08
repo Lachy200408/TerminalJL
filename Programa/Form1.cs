@@ -130,5 +130,32 @@ namespace Terminal
         private string pathActual(){
             return (SistemaOperativo.home() == Directorio.actual())? "~" : Directorio.actual();
         }
+
+        //Metodo asincrono que pondra las lineas cada vez que el programa las envie
+        public Action _PutLinea(string linea,bool reemplazando, object sender, KeyEventArgs e){
+            return new Action(() => {
+                if(richTextBox1.InvokeRequired){
+                    richTextBox1.Invoke(() => {
+                        e.Handled = true;
+                        int firstCharIndex = richTextBox1.GetFirstCharIndexFromLine(richTextBox1.Lines.Length-1);  // Obtenemos el �ndice del primer car�cter de la l�nea
+                        string currentLine = (richTextBox1.Lines.Length >= 1)? richTextBox1.Lines[richTextBox1.Lines.Length-1] : "";  // Obtenemos el texto de la l�nea actual
+
+                        // Agregamos "linea" al final de la l�nea actual(si reemplazando = false) o reemplazamos la linea actual(si es true)
+                        if (reemplazando)
+                            currentLine = linea;
+                        else
+                            currentLine += linea;
+
+                        // Reemplazamos la l�nea actual con la versi�n modificada
+                        richTextBox1.Select(firstCharIndex, richTextBox1.Lines[richTextBox1.Lines.Length-1].Length);  // Seleccionamos la l�nea actual
+                        richTextBox1.SelectedText = currentLine;  // Reemplazamos el texto de la l�nea seleccionada
+
+                        // Movemos el cursor al final de la l�nea modificada
+                        richTextBox1.SelectionStart = firstCharIndex + currentLine.Length;
+                        richTextBox1.SelectionLength = 0;
+                    });
+                }
+            });
+        }
     }
 }
