@@ -1,5 +1,5 @@
 namespace Terminal{
 	public static class Salida{
-        public static string message = "";
+        public static Queue<string> message = new Queue<string>();
     }
 }

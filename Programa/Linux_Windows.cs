@@ -13,5 +13,9 @@ namespace Terminal{
         public static string extension(){
             return (osName() == "Unix")? "" : ".exe";
         }
+
+        public static string home(){
+            return(osName() == "Unix")? ("/home/" + Environment.UserName) : ("C:\\Users\\" + Environment.UserName);
+        }
     }
 }

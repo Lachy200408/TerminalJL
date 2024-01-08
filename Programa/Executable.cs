@@ -1,8 +1,9 @@
 using System.Diagnostics;
+using System.Windows.Forms;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Terminal{
-	public class Executable : Directorio{
+	public class Executable : Form1{
 		//Metodo que analiza si existe el programa
 		private static bool existePrograma(string fileName){
 			return (File.Exists(Directorio.actualFunctions() + fileName + SistemaOperativo.barra() + fileName + SistemaOperativo.extension()))? true : false;
@@ -12,29 +13,34 @@ namespace Terminal{
 			return Directorio.actualFunctions() + fileName + SistemaOperativo.barra() + fileName + SistemaOperativo.extension();
 		}
 
-		private static string ejecutarWaitResponse(string _executablePath, string argumentos){
-			string salida="";
-
+		private static void ejecutarWaitResponse(string _executablePath, string argumentos, Form1 form, object sender, KeyEventArgs e){
 			using (Process proceso = new Process()){
 				proceso.StartInfo.FileName  = _executablePath;
 				proceso.StartInfo.Arguments = argumentos;
 				proceso.StartInfo.RedirectStandardOutput = true;
 				proceso.StartInfo.UseShellExecute = false;
 				proceso.StartInfo.CreateNoWindow = true;
+				proceso.OutputDataReceived += new DataReceivedEventHandler(tomarOutput
+					/*(object sendingProcess, DataReceivedEventArgs outline) => {
+						if(!string.IsNullOrEmpty(outline.Data)){
+							form.PutLineaActual(outline.Data, false, sender, e);
+						}
+					}*/);
 
 				proceso.Start();
-
-				//Devolver la salida
-				salida = proceso.StandardOutput.ReadToEnd()!;
+				proceso.BeginOutputReadLine();
 
 				proceso.WaitForExit();
 			}
+		}
 
-			return salida.Substring(0, salida.Length-2);
+		private static void tomarOutput(object sendingProcess, DataReceivedEventArgs outline/*, Form1 form, object sender, KeyEventArgs e*/){
+			if(!string.IsNullOrEmpty(outline.Data))
+				Salida.message.Enqueue(outline.Data);
 		}
 
 		//Metodo que ejecuta el programa
-		public static void llamarPrograma(string[] _arrayComando){
+		public static void llamarPrograma(string[] _arrayComando, Form1 form, object sender, KeyEventArgs e){
 			try{
 				//Aqui es importante saber si un programa externo puede hacer un throw hacia el que lo ejecuta.	
 
@@ -43,18 +49,18 @@ namespace Terminal{
 					throw new Exception(Error.PROGRAMA_NO_EXISTE);
 				}
 
-				//Ejecuta y espera la respuesta
-				Salida.message = Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), _arrayComando[1]);
+				//Ejecuta y envia la respuesta
+				Executable.ejecutarWaitResponse(Executable.executablePath(_arrayComando[0]), (_arrayComando.Length>1)? _arrayComando[1] : "", form, sender, e);
 			}
 			catch(Exception error){
 				switch (error.Message)
 				{
 					case Error.PROGRAMA_NO_EXISTE:{
-						Salida.message = "El comando '" + _arrayComando[0] + "' no se reconoce como una instruccion valida.";
+						Salida.message.Enqueue("El comando '" + _arrayComando[0] + "' no se reconoce como una instruccion valida.");
 						break;
 					}
 					default:{
-						Salida.message = error.Message;
+						Salida.message.Enqueue(error.Message);
 						break;
 					}
 				}
