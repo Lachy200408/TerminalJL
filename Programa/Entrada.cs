@@ -13,7 +13,7 @@ namespace Terminal{
 		//Componer el array
 		private static string[] conformarArray(){
 			if(stringComando.Contains(" ")){
-				arrayComando[0] = stringComando.Substring(0, (stringComando.IndexOf(" "))).ToLower();
+				arrayComando[0] = stringComando.Substring(0, (stringComando.IndexOf(" ")));
 				stringComando = stringComando.Substring(stringComando.IndexOf(" ") + 1);
 				arrayComando[1] = stringComando;
 			}

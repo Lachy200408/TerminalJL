@@ -38,73 +38,73 @@ namespace Terminal
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch ((byte)e.KeyCode)
-            {
-                case 8://Backspace
-                    e.Handled = !Editable(true);  // Previene el comportamiento predeterminado del backspace
-                    break;
-                case 13://Enter
-                    string s = ObtenerLineaEjecutable(GetLineaActual());
+            if(!Executable._processIsRunning()){//Condicional que evalua si hay un proceso corriendo
+                switch ((byte)e.KeyCode)
+                {
+                    case 8://Backspace
+                        e.Handled = !Editable(true);  // Previene el comportamiento predeterminado del backspace
+                        break;
+                    case 13://Enter
+                        string s = ObtenerLineaEjecutable(GetLineaActual());
 
-                    if (s!="" && s!="clear" && CadenaEspacios(s.Length)!=s)//Hay algo escrito
-                    {
-                        string[] arrayComando = Entrada.nueva(s); // Se obtiene el array
+                        if (!(CodigosAnteriores.Contains(s)) && s!="" && CadenaEspacios(s.Length)!=s)
+                            CodigosAnteriores.Add(s);
+
+                        if(s.ToLower() == "exit"){
+                            this.Close();
+                        }
+                        else if(s.ToLower() == "clear"){
+                            richTextBox1.Text = usuarioPC() + ":" + pathActual() + ">";
+                            PutLineaActual("",false, sender, e);
+                        }
+                        else if(s!="" && CadenaEspacios(s.Length)!=s)//Hay algo escrito
+                        {
+                            string[] arrayComando = Entrada.nueva(s); // Se obtiene el array
+                            
+                            Executable.llamarPrograma(arrayComando, this, sender, e); // Se llama al programa
+
+                            PutLineaActual("\n",false, sender, e);
+                            break;
+                        }
+                        else{
+                            PutLineaActual("\n",false,sender,e);
+                            PutLineaActual(usuarioPC() + ":" + pathActual() + ">",false,sender,e);
+                        }
                         
-                        Executable.llamarPrograma(arrayComando, this, sender, e); // Se llama al programa
-
-                        PutLineaActual("\n",false, sender, e);
-                        while(Salida.message.Count >= 1) PutLineaActual(Salida.message.Dequeue()+"\n", false, sender, e);
-                    }
-                    
-                    if(s.ToLower() == "exit"){
-                        this.Close();
-                    }
-                    else if(s.ToLower() == "clear"){
-                        richTextBox1.Text = usuarioPC() + ":" + pathActual() + ">";
-                        PutLineaActual("",false, sender, e);
-                    }
-                    else
-                    {
-                        PutLineaActual("\n",false, sender, e);
-                        PutLineaActual(usuarioPC() + ":" + pathActual() + ">",false, sender, e);
-                    }
-
-                    if (!(CodigosAnteriores.Contains(s)) && s!="" && CadenaEspacios(s.Length)!=s)
-                        CodigosAnteriores.Add(s);
-                    
-                    break;
-                case 38:
-                case 40:
-                    e.Handled = true;
-                    if (CodigosAnteriores.Count>0 && Editable())    
-                    {
-                        int indice = CodigosAnteriores.IndexOf(ObtenerLineaEjecutable(GetLineaActual()));
-                        if (indice < 0)//Codigo inexistente
-                        {
-                            PutLineaActual(usuarioPC() + ":" + pathActual() + ">" + CodigosAnteriores[0], true, sender, e);
-                        }
-                        else
-                        if (CodigosAnteriores.Count > 1)
-                        {
-                            if (e.KeyCode == Keys.Up)
-                                indice--;
-                            else
-                                indice++;
-                            if (indice < 0)
-                                indice = CodigosAnteriores.Count - 1;
-                            else
-                                if (indice > CodigosAnteriores.Count - 1)
-                                indice = 0;
-                            PutLineaActual(usuarioPC() + ":" + pathActual() + ">" + CodigosAnteriores[indice], true, sender, e);
-                        }
-                    }
-                    break;
-                default:
-                    if(!Editable()){
+                        break;
+                    case 38://Flechas de
+                    case 40://arriba y abajo
                         e.Handled = true;
-                        e.SuppressKeyPress = true;
-                    }
-                    break;
+                        if (CodigosAnteriores.Count>0 && Editable())    
+                        {
+                            int indice = CodigosAnteriores.IndexOf(ObtenerLineaEjecutable(GetLineaActual()));
+                            if (indice < 0)//Codigo inexistente
+                            {
+                                PutLineaActual(usuarioPC() + ":" + pathActual() + ">" + CodigosAnteriores[0], true, sender, e);
+                            }
+                            else
+                            if (CodigosAnteriores.Count > 1)
+                            {
+                                if (e.KeyCode == Keys.Up)
+                                    indice--;
+                                else
+                                    indice++;
+                                if (indice < 0)
+                                    indice = CodigosAnteriores.Count - 1;
+                                else
+                                    if (indice > CodigosAnteriores.Count - 1)
+                                    indice = 0;
+                                PutLineaActual(usuarioPC() + ":" + pathActual() + ">" + CodigosAnteriores[indice], true, sender, e);
+                            }
+                        }
+                        break;
+                    default:
+                        if(!Editable()){
+                            e.Handled = true;
+                            e.SuppressKeyPress = true;
+                        }
+                        break;
+                }
             }
         }
 
@@ -124,14 +124,19 @@ namespace Terminal
             linea = linea.Substring(indi+1);
             return linea;
         }
-        private string CadenaEspacios(int length){
+        private string CadenaEspacios(int length){//Devuelve una cadena de espacios en blanco con la longitud dada
             return (length == 1)? " " : " " + CadenaEspacios(length-1);
         }
-        private string usuarioPC(){
+        public string usuarioPC(){//Devuelve una cadena con el nombre del usuario y el nombre de la PC que lo ejecute
             return Environment.UserName + "@" + Environment.MachineName;
         }
-        private string pathActual(){
-            return (SistemaOperativo.home() == Directorio.actual())? "~" : Directorio.actual();
+        public string pathActual(){
+            string _actual = Directorio.actual().ToLower() , _home = SistemaOperativo.home().ToLower() , _barra = SistemaOperativo.barra();
+            int inicio = _home.Length+1 , fin = _actual.Length-inicio-2;
+
+            return (!_actual.Contains(_home))?
+                _actual : 
+                "~" + _barra + Directorio.actual().Substring(inicio, fin);
         }
 
         //Metodo asincrono que pondra las lineas cada vez que el programa las envie
