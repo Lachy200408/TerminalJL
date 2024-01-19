@@ -1,6 +1,6 @@
 namespace Terminal
 {
-    public partial class Form1 : Form
+    public partial class Form1 : RoundForm
     {
         public Form1()
         {
@@ -113,7 +113,7 @@ namespace Terminal
             int extra = (backspace)? 2 : 1; 
             int currentLineIndex = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart);
             int positionInLine = richTextBox1.SelectionStart - richTextBox1.GetFirstCharIndexFromLine(currentLineIndex);
-            if (richTextBox1.Lines.Length>1 && (positionInLine <= usuarioPC().Length + pathActual().Length + extra) || currentLineIndex != richTextBox1.Lines.Length-1){
+            if (richTextBox1.Lines.Length>=1 && (positionInLine <= usuarioPC().Length + pathActual().Length + extra) || currentLineIndex != richTextBox1.Lines.Length-1){
                 return false;//No es editable
             }
             return true;// Si lo es
